@@ -2,16 +2,13 @@ Summary:	Spanish-Romanian language pair for Apertium
 Summary(pl.UTF-8):	Para języków hiszpański-rumuński dla Apertium
 %define	lpair	es-ro
 Name:		apertium-dict-%{lpair}
-Version:	0.7.1
+Version:	0.7.3
 Release:	1
 License:	GPL v3
 Group:		Applications/Text
 Source0:	http://downloads.sourceforge.net/apertium/apertium-%{lpair}-%{version}.tar.gz
-# Source0-md5:	9de6e21ddf8dfb65a6b09b430e8ab600
-Patch0:		%{name}-DESTDIR.patch
-Patch1:		%{name}-apertium32.patch
-Patch2:		%{name}-fix.patch
-Patch3:		%{name}-install.patch
+# Source0-md5:	f3897699ee1875b1517d2871370b3b49
+Patch0:		%{name}-apertium32.patch
 URL:		http://www.apertium.org/
 BuildRequires:	apertium-devel >= 3.2.0
 BuildRequires:	autoconf >= 2.52
@@ -35,9 +32,6 @@ oznaczania części mowy w obu językach.
 %prep
 %setup -q -n apertium-%{lpair}-%{version}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
 
 %build
 %{__aclocal}
@@ -54,9 +48,6 @@ install -d $RPM_BUILD_ROOT%{_datadir}/apertium/modes
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-# not needed here (see modes subdir) and contain wrong (builddir) paths
-%{__rm} $RPM_BUILD_ROOT%{_datadir}/apertium/apertium-%{lpair}/*.mode
 
 %clean
 rm -rf $RPM_BUILD_ROOT
