@@ -3,7 +3,7 @@ Summary(pl.UTF-8):	Para języków hiszpański-rumuński dla Apertium
 %define	lpair	es-ro
 Name:		apertium-dict-%{lpair}
 Version:	0.7.3
-Release:	1
+Release:	2
 License:	GPL v3
 Group:		Applications/Text
 Source0:	http://downloads.sourceforge.net/apertium/apertium-%{lpair}-%{version}.tar.gz
